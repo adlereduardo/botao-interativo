@@ -1,30 +1,23 @@
-// PEga os elemento do botão "Sim" e "Não"
-
+// Pega os elementos do botão "Não" e "Sim" pelos seus respectivos IDs
 let botaoNao = document.getElementById("nao");
 let botaoSim = document.getElementById("sim");
-let mensagemErro = document.getElementById("erro");
+let mensagemErro = document.getElementById("erro"); // Pega o elemento que exibe a mensagem de erro
 
-// Função que move o botão "Não" para uma nova posição
-
+// Adiciona um evento ao botão "Não" que será acionado quando o mouse passar sobre ele
 botaoNao.addEventListener("mouseover", function() {
+    // Gera uma nova posição aleatória para o botão "Não" dentro da largura e altura da janela
+    let posX = Math.random() * (window.innerWidth - botaoNao.offsetWidth); // Calcula a posição X aleatória
+    let posY = Math.random() * (window.innerHeight - botaoNao.offsetHeight); // Calcula a posição Y aleatória
 
-    //Move o botão não aleatoriamente pela tela 
+    botaoNao.style.position = "absolute"; // Define o botão "Não" como um elemento posicionado de forma absoluta
+    botaoNao.style.left = posX + "px"; // Aplica a nova posição X ao botão
+    botaoNao.style.top = posY + "px";  // Aplica a nova posição Y ao botão
 
-    let posX = Math.random () * (window.innerWidth - botaoNao.offsetWidth);
-
-    let posY = Math.random () * (window.innerHeight - botaoNao.offsetWidth);
-
-    botaoNao.style.position = "absolute";
-    botaoNao.style.left = posX + "px"
-    botaoNao.style.top = posY + "px";
-
-    //Exibe a mensagem de erro
+    // Exibe a mensagem de erro, tornando-a visível
     mensagemErro.style.display = "block";
+});
 
-    });
-
-    // Mantém o botão fixo 
-    botaoSim.addEventListener ("click", function () {
-        alert ("Ótima escolha! Minha chave PIX é o Nº do celular!");
-
-    });
+// Adiciona um evento ao botão "Sim" que será acionado quando o mouse passar sobre ele
+botaoSim.addEventListener("click", function() {
+    alert("Marcado então rs, amanhã quando chegar do curso kkkkkk"); // Exibe um alerta confirmando a escolha
+});
